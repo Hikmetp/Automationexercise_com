@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="23.296">
+    <testcase classname="Automation Exercise Register User" name="TC_01_Test_Case" time="23.067">
+        <system-out><![CDATA[Given launch the browser02..................................................passed
+When navigate to the url02..................................................passed
+Then verify the homepage if it is visible successfully02....................passed
+Then click on signup or login button........................................passed
+And verify new user signup caution is visible...............................passed
+Then enter name and email address...........................................passed
+And click on the signup button..............................................passed
+Then verify the ENTER ACCOUNT INFORMATION is visible........................passed
+Then fill details title name email password dob.............................passed
+Then select the signup for our newsletter checkbox..........................passed
+Then select the receive special offers from our partners checkbox...........passed
+Then fill details firstname lastname company address address2 country state city zipcode mobile number.passed
+Then click create account button............................................passed
+Then verify that ACCOUNT CREATED is visible.................................passed
+Then click continue button..................................................passed
+Then verify Logged in as username is visible................................passed
+Then click Delete Account button............................................passed
+Then verify that ACCOUNT DELETED is visible and click Continue button.......passed
+Then close the browser......................................................passed
+]]></system-out>
+    </testcase>
+</testsuite>

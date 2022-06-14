@@ -1,10 +1,9 @@
 package utilities;
 import org.apache.commons.io.FileUtils;
-import org.junit.Assert;
 import org.openqa.selenium.*;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
-
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -12,17 +11,23 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import java.util.function.Function;
-
-public abstract class ReusableMethods {
+public class ReusableMethods {
+    /*HOW DO YOU GET SCREENSHOT?
+     * I use getScreenShotAs method to take a screenshot in selenium in my framework
+     * I actually store the screenshot with unique name in my framework*/
     public static String getScreenshot(String name) throws IOException {
+//        THIS METHOD TAKES SCREENSHOT AND STORE IN /test-output FOLDER
+//        NAME OF THE SCREEN IS BASED ON THE CURRENT TIME
+//        SO THAN WE CAN HAVE UNIQUE NAME
         // naming the screenshot with the current date to avoid duplication
         String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
-        // TakesScreenshot is an interface of selenium that takes the screenshot
+        // TakesScreenshot is an interface of selenium that takes the screenshot. SAME IS IN THE HOOKS
         TakesScreenshot ts = (TakesScreenshot) Driver.getDriver();
         File source = ts.getScreenshotAs(OutputType.FILE);
         // full path to the screenshot location
-        String target = System.getProperty("user.dir") + "/target/Screenshots/" + name + date + ".png";
+        String target = System.getProperty("user.dir") + "/test-output/Screenshots/" + name + date + ".png";
         File finalDestination = new File(target);
         // save the screenshot to the path given
         FileUtils.copyFile(source, finalDestination);
@@ -129,119 +134,38 @@ public abstract class ReusableMethods {
         });
         return element;
     }
-    //========WebElement Screenshot=============//
-
-    public static String WebEgetScreenshot(String name,WebElement elementismi) throws IOException {
-        // naming the screenshot with the current date to avoid duplication
-        String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
-        // TakesScreenshot is an interface of selenium that takes the screenshot
-        // TakesScreenshot ts = (TakesScreenshot) Driver.getDriver();
-        File source =elementismi.getScreenshotAs(OutputType.FILE);
-        // full path to the screenshot location
-        String target = System.getProperty("user.dir") + "/target/Screenshots/" + name + date + ".png";
-        File finalDestination = new File(target);
-        // save the screenshot to the path given
-        FileUtils.copyFile(source, finalDestination);
-        return target;
+    /**
+     * Performs double click action on an element
+     * @param element
+     */
+    public static void doubleClick(WebElement element) {
+        new Actions(Driver.getDriver()).doubleClick(element).build().perform();
     }
-
-    private static WebDriver driver = Driver.getDriver();
-    static WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
-    public static void clickElement(WebElement clickElement) {
-        wait.until(ExpectedConditions.elementToBeClickable(clickElement));
-        clickElement.click();
-    }
-
-    public static void sendKeysElement(WebElement sendKeysElement, String value) {
-        wait.until(ExpectedConditions.visibilityOf(sendKeysElement));
-        sendKeysElement.sendKeys(value);
-    }
-
-    public static void selectElementFromDropdown(WebElement dropdown, String element) {
-        Select slc = new Select(dropdown);
-        slc.selectByVisibleText(element);
-    }
-
-    public static void AssertionEquals(WebElement actual, String expected) {
-        wait.until(ExpectedConditions.visibilityOf(actual));
-        Assert.assertEquals(actual.getText(), expected);
-
-    }
-    public static void AssertionTrue(WebElement actual, String expected) {
-        wait.until(ExpectedConditions.visibilityOf(actual));
-        Assert.assertTrue(actual.getText().contains(expected));
-        System.out.println("My Message : " + actual.getText());
-    }
-    public  static void ListWEGetTexPrint(List<WebElement>list){
-        for(WebElement w :list){
-            System.out.println("w.getText() = " + w.getText());
+    /**
+     * @param element
+     * @param check
+     */
+    public static void selectCheckBox(WebElement element, boolean check) {
+        if (check) {
+            if (!element.isSelected()) {
+                element.click();
+            }
+        } else {
+            if (element.isSelected()) {
+                element.click();
+            }
         }
     }
-    public static void ListWEClick(List<WebElement>list){
-        for(WebElement w :list){
-            w.click();
-        }
+    /**
+     * Selects a random value from a dropdown list and returns the selected Web Element
+     * @param select
+     * @return
+     */
+    public static WebElement selectRandomTextFromDropdown(Select select) {
+        Random random = new Random();
+        List<WebElement> weblist = select.getOptions();
+        int optionIndex = 1 + random.nextInt(weblist.size() - 1);
+        select.selectByIndex(optionIndex);
+        return select.getFirstSelectedOption();
     }
-
-
-    public static void jsScroll() {
-
-        JavascriptExecutor je = (JavascriptExecutor) Driver.getDriver();
-        je.executeScript("window.scrollTo(0,document.body.scrollHeight)");
-
-    }
-
-
-
-    public static void scrollToElement(WebElement element) {
-        ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
-    }
-
-    public void scrollDownWithJS() throws InterruptedException {
-
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
-
-        js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
-        Thread.sleep(3000);
-
-    }
-
-    public static void clickWithJS(WebElement webElement) throws InterruptedException {
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
-        Thread.sleep(3000);
-
-        js.executeScript("arguments[0].click();", webElement);
-
-    }
-
-    public static void clickElementByJS(WebElement element) {
-        JavascriptExecutor jsexecutor = ((JavascriptExecutor) Driver.getDriver());
-        jsexecutor.executeScript("arguments[0].click();", element);
-    }
-
-    public static void scrollIntoViewJS(WebElement element) {
-        JavascriptExecutor jsexecutor = ((JavascriptExecutor) Driver.getDriver());
-        jsexecutor.executeScript("arguments[0].scrollIntoView(true);", element);
-    }
-
-    public static void scrollUpWithJS() throws InterruptedException {
-
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
-
-        js.executeScript("window.scrollTo(document.body.scrollHeight,0)");
-        Thread.sleep(3000);
-
-    }
-
-
-
-
-
-
-
-
-
-
-
 }

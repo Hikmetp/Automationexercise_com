@@ -1,26 +1,31 @@
 package utilities;
+
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.Properties;
 
 public class ConfigReader {
+    //    This class will ONLY be used for getting the data from
+//    configuration.properties file
     private static Properties properties;
+
     static {
-        String path="configuration.properties";
+//        path of the config file
+        String path = "configuration.properties";
         try {
-            FileInputStream fileInputStream=new FileInputStream(path);
-            properties=new Properties();
-            properties.load(fileInputStream);
-            fileInputStream.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+//            Opening the file
+            FileInputStream file = new FileInputStream(path);
+//            loading the file
+            properties = new Properties();
+            properties.load(file);
+//            closing the file
+            file.close();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    public static String getProperty(String key){
+
+    //    This method accepts the key and returns the value
+    public static String getProperty(String key) {
         return properties.getProperty(key);
     }
-
 }

@@ -8,6 +8,7 @@ import org.openqa.selenium.interactions.Actions;
 import pages.G3AutomationExercisePage;
 import utilities.ConfigReader;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 import java.security.Key;
 
@@ -26,7 +27,7 @@ public class AutomationExerciseRegisterUserTestCaseDefs {
     @When("navigate to the url02")
     public void navigate_to_the_url02() {
         // Write code here that turns the phrase above into concrete actions
-        Driver.getDriver().get(ConfigReader.getProperty("automationexercise_url"));
+        Driver.getDriver().get(ConfigReader.getProperty("automation_url"));
         //throw new io.cucumber.java.PendingException();
     }
     @Then("verify the homepage if it is visible successfully02")
@@ -88,8 +89,9 @@ public class AutomationExerciseRegisterUserTestCaseDefs {
     @Then("select the signup for our newsletter checkbox")
     public void select_the_signup_for_our_newsletter_checkbox() {
         // Write code here that turns the phrase above into concrete actions
-        actions.scrollToElement(automationExercisePage.newsletterCheckBox);
-        automationExercisePage.newsletterCheckBox.click();
+        ReusableMethods.scrollToElement(automationExercisePage.newsletterCheckBox);
+//        actions.scrollToElement(automationExercisePage.newsletterCheckBox);
+//        automationExercisePage.newsletterCheckBox.click();
         //throw new io.cucumber.java.PendingException();
     }
     @Then("select the receive special offers from our partners checkbox")
@@ -101,8 +103,10 @@ public class AutomationExerciseRegisterUserTestCaseDefs {
     @Then("fill details firstname lastname company address address2 country state city zipcode mobile number")
     public void fill_details_firstname_lastname_company_address_address2_country_state_city_zipcode_mobile_number() {
         // Write code here that turns the phrase above into concrete actions
-        actions.scrollToElement(automationExercisePage.firstnameBox);
-        automationExercisePage.firstnameBox.sendKeys(faker.name().firstName());
+
+        ReusableMethods.scrollToElement(automationExercisePage.firstnameBox);
+        //actions.scrollToElement(automationExercisePage.firstnameBox);
+        //automationExercisePage.firstnameBox.sendKeys(faker.name().firstName());
         actions
                 .sendKeys(Keys.TAB)
                 .sendKeys(faker.name().lastName())

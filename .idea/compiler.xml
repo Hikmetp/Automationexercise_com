@@ -10,5 +10,8 @@
         <module name="practiceCucumber_automationexercise" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="practice_automationexercise" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>

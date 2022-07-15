@@ -11,4 +11,4 @@ Feature: Register User with existing email
     Then  Enter name and already registered email address
     Then  Click 'Signup' button
     Then  Verify error 'Email Address already exist!' is visible
-    Then  close the browser
+    Then  close the browser as want

@@ -5,9 +5,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
-public class TC_5_Pages {
+public class TC05_Pages {
 
-    public TC_5_Pages() {
+    public TC05_Pages() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
@@ -37,5 +37,8 @@ public class TC_5_Pages {
 
     @FindBy(xpath = "//b[.='Enter Account Information']")
     public WebElement enterAccountInformation;
+
+    @FindBy(xpath = "//*[.='Email Address already exist!']")
+    public WebElement errorLetter;
 }
 

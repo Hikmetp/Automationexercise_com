@@ -1,10 +1,2 @@
-stepDefinitions\LoginStepDefinition.class
-runners\TestRunner1.class
-pages\LoginPage.class
-utilities\ConfigReader.class
-utilities\ReusableMethods$2.class
-pages\C01.class
-utilities\ReusableMethods$1.class
-runners\TestRunner.class
-utilities\Driver.class
-utilities\ReusableMethods.class
+pages/TC05_Pages.class
+stepDefinitions/TC05_StepDefinition.class

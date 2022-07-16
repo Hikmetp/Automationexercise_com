@@ -13,8 +13,8 @@ import org.junit.runner.RunWith;
                 "rerun:target/failedRerun.txt"
         },
         features = "./src/test/resources/features",
-        glue = "stepdefinitions",
-        tags = "@negativeLogin",
+        glue = "StepDefinitions",
+        tags = "@au",
         dryRun = false
 )
 public class TestRunner {

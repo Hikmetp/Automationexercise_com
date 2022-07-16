@@ -5,10 +5,7 @@
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
-<<<<<<< HEAD
-=======
       <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
->>>>>>> bcb8b4df21d8f0e8e8bfd05ae246531f0d23f8d4
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />

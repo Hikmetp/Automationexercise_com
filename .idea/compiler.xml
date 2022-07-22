@@ -6,9 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="practice_automationexercise" />
         <module name="practiceCucumber_automationexercise" />
+        <module name="practice_automationexercise" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Automationexercise_com" target="11" />
+      <module name="practice_automationexercise" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>

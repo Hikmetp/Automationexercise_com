@@ -5,6 +5,9 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 import pages.TC08_Pages;
 import utilities.ConfigReader;
 import utilities.Driver;
@@ -41,14 +44,19 @@ public class TC08stepDefinition {
 
     @Then("User is landed to product detail page")
     public void userIsLandedToProductDetailPage() {
-        String expectedUrl = "https://automationexercise.com/product_details/1";
+        String expectedUrl = "https://www.automationexercise.com/product_details/1";
         String actualUrl = Driver.getDriver().getCurrentUrl();
         assertEquals(expectedUrl, actualUrl);
+        waitFor(3);
 
     }
 
     @Then("Verify that detail is visible: product name, category, price, availability, condition, brand")
-    public void verifyThatDetailDetailIsVisibleProductNameCategoryPriceAvailabilityConditionBrand() {
+    public void verifyThatDetailDetailIsVisibleProductNameCategoryPriceAvailabilityConditionBrand() throws InterruptedException {
+
+        waitFor(5);
+        JavascriptExecutor js=(JavascriptExecutor) Driver.getDriver();
+        js.executeScript("window.scrollBy(0,300)");
 
         assertTrue(tc08.firstPictureProductName.isDisplayed());
         assertTrue(tc08.firstPictureCategory.isDisplayed());

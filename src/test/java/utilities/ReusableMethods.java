@@ -198,7 +198,7 @@ public abstract class ReusableMethods {
         ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
     }
 
-    public void scrollDownWithJS() throws InterruptedException {
+    public static void scrollDownWithJS() throws InterruptedException {
 
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
 

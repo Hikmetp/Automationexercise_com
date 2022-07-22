@@ -40,23 +40,25 @@ public class TC08_Pages {
     public WebElement firstPictureViewProduct;
     ////*[text()='View Product']
 
-    @FindBy(xpath = "//*[.='Blue Top']")
+    @FindBy(xpath = "//h2[contains(text(),'Blue Top')]")
     public WebElement firstPictureProductName;
 
-    @FindBy(xpath = "//*[.='Category: Women > Tops']")
+    @FindBy(xpath = "//p[contains(text(),'Category')]")
     public WebElement firstPictureCategory;
 
-    @FindBy(xpath = "//*[.='Rs. 500']")
+    @FindBy(xpath = "//span[contains(text(),'Rs. 500')]")
     public WebElement firstPicturePrice;
 
-    @FindBy(xpath = "//*[.='Availability:']")
+    @FindBy(xpath = "//b[contains(text(),'Availability:')]")
     public WebElement firstPictureAvalibility;
 
-    @FindBy(xpath = "//*[.='Condition:']")
+    @FindBy(xpath = "//b[contains(text(),'Condition')]")
     public WebElement firstPictureCondition;
 
-    @FindBy(xpath = "//*[.='Brand:']")
+    @FindBy(xpath = "//b[contains(text(),'Brand')]")
     public WebElement firstPictureBrand;
+
+
 
     @FindBy(xpath = "//*[@class='productinfo text-center']")
     public List<WebElement> allproductList;

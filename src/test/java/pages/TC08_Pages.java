@@ -61,6 +61,12 @@ public class TC08_Pages {
     @FindBy(xpath = "//*[@class='productinfo text-center']")
     public List<WebElement> allproductList;
 
+    @FindBy(xpath = "//a[@href='/test_cases']")
+    public WebElement testCasesButton;
+
+    @FindBy(xpath = "(//h2)[1]")
+    public WebElement testCasesText;
+
 
 }
 

@@ -1,10 +1,13 @@
 package StepDefinitions;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import pages.TC08_Pages;
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 import static org.junit.Assert.*;
+import static utilities.ReusableMethods.waitFor;
 
 
 public class TC08stepDefinition {
@@ -53,5 +56,17 @@ public class TC08stepDefinition {
 
 
 
+    }
+
+    @And("Click on Test Cases button")
+    public void clickOnTestCasesButton() {
+       waitFor(5);
+        tc08.testCasesButton.click();
+        
+    }
+
+    @And("Verify user is navigated to test cases page successfully")
+    public void verifyUserIsNavigatedToTestCasesPageSuccessfully() {
+        assertTrue(tc08.testCasesText.isDisplayed());
     }
 }

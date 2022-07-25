@@ -7,6 +7,7 @@ import utilities.Driver;
 
 public class TC10_pages {
     public TC10_pages() {
+
         PageFactory.initElements(Driver.getDriver(), this);
     }
 

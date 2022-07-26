@@ -17,8 +17,8 @@ Feature: US1012 To make success shopping
     Then Click Products button
     When Hover over first product and click 'Add to cart'
     When Click Continue Shopping button
-    And Click View Cart button
     And Hover over second product and click 'Add to cart'
+    And Click View Cart button
     And Verify both products are added to Cart
     And Verify their prices quantity and total price
     And close the browser

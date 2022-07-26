@@ -3,6 +3,7 @@ Feature: Register User with existing email
 
   Scenario: Register User with existing email
 
+
     Given Launch browser
     When  Navigate to url
     Then  Verify that home page is visible successfully
@@ -12,3 +13,4 @@ Feature: Register User with existing email
     Then  Click 'Signup' button
     Then  Verify error 'Email Address already exist!' is visible
     Then  close the browser as same
+

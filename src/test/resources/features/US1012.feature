@@ -22,3 +22,6 @@ Feature: US1012 To make success shopping
     And Verify both products are added to Cart
     And Verify their prices quantity and total price
     And close the browser
+
+
+

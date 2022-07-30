@@ -13,7 +13,7 @@ public class TC05_StepDefinition {
     TC05_Pages tc05pages= new TC05_Pages();
 
     @Given("Navigate to url")
-public void navigate_to_url() {
+    public void navigate_to_url() {
         Driver.getDriver().get(ConfigReader.getProperty("automation_url"));
 
 

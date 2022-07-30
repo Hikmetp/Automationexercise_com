@@ -1,4 +1,4 @@
-package stepDefinitions;
+package StepDefinitions;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -6,8 +6,6 @@ import org.junit.Assert;
 import pages.LoginPage;
 import utilities.ConfigReader;
 import utilities.Driver;
-import utilities.ReusableMethods;
-
 import static utilities.ReusableMethods.clickElement;
 import static utilities.ReusableMethods.sendKeysElement;
 
